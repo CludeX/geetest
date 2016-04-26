@@ -1,0 +1,120 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.gee-body {
+    position: relative;
+    margin-top: 64px;
+    padding-top: 20px;
+}
+
+.gee-nav {
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+.gee-message {
+    display: block;
+    margin: 15px 0 !important;
+}
+
+.gee-collection {
+    padding: 10px 15px;
+}
+
+.gee-pop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: table;
+    background-color: #333333;
+    opacity: 0.95;
+    z-index: 100;
+}
+
+.gee-pop-body {
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.gee-pop-card{
+    position: relative;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.gee-add-btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.card {
+    padding: 10px;
+}
+
+.btn-large i{
+    font-style: inherit !important;
+}
+.delete{
+    background-color: red;
+    display:block;
+    margin: -8px -20px;
+}
+.delete:hover{
+    background-color: #FF1744;
+}
+.group-m{
+    color: #90a4ae;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.add_new{
+    display:block;
+    margin: -8px -20px;
+}
+.sub{
+    display: inline-block;
+    float: right;
+}
+.newMessage{
+    display: inline-block;
+    float: right;
+    margin: 3px 20px auto auto !important;
+}
+.warning{
+    margin-top: 50px;
+}
+.lab{
+    margin-right: 12px;
+}
+.table td,.table tr {
+    border-bottom: 1px solid #e4e4e4;
+}
+.table td{
+    color: #78909c;
+}
+.table td:last-child{
+    border-bottom: none !important;
+}
+.log_container{
+    height: 752px;
+    overflow: hidden;
+}
+.page{
+    width: 50%;
+    height: 40px;
+    margin-left: 40%;
+    margin-top: 50px;
+}
+.table tr:nth-of-type(even){
+    background:rgb(245,246,247);
+}
+.table th,.table td{
+   text-align: center !important;
+}

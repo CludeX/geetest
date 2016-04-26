@@ -1,0 +1,92 @@
+<div class="container">
+  <div class="card row" ng-show="addNew">
+    <h4 class="center">Add New Member</h4>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="member_name" type="text" ng-model="newMember._id" class="validate">
+          <label for="member_name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="member_email" type="email" ng-model="newMember.email" class="validate">
+          <label for="member_email">email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="member_chat" type="text" ng-model="newMember.wechat" class="validate">
+          <label for="member_chat">微信号</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="member_tel" type="text" ng-model="newMember.tel" class="validate">
+          <label for="member_tel">手机号</label>
+        </div>
+      </div>
+      <div class="gee-message row chip" id="message" ng-show="newMemberMessage">
+        {{newMemberMessage}}
+      </div>
+      <a class="waves-effect waves-light btn" id="submit" ng-click="addMember(newMember)">Submit</a>
+    </form>
+  </div>
+
+  <div class="gee-collection card row">                                            <!-- list -->
+    <h4 class="center">Member List</h4>
+    <div class="collection">
+      <a href="#!" ng-repeat="member in allMembers" class="collection-item" ng-click="setMember(member)">
+        {{member._id}}
+        <span class="badge" ng-bind="member.level"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="gee-pop" id="gee-pop" ng-show="showPop">                          <!-- 遮罩层 -->
+    <div class="gee-pop-body">
+      <div class="container">
+        <div class="gee-pop-card card row">
+          <a href="#!" class="right" ng-click="showPop=false">
+            <i class="material-icons">power_settings_new</i>
+          </a>
+          <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="member_name" type="text" ng-model="aMember._id" class="validate">
+                  <label for="member_name" class="active">Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="member_email" type="email" ng-model="aMember.email" class="validate">
+                  <label for="member_email" class="active">email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="member_chat" type="text" ng-model="aMember.wechat" class="validate">
+                  <label for="member_chat" class="active">微信号</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="member_tel" type="text" ng-model="aMember.tel" class="validate">
+                  <label for="member_tel" class="active">手机号</label>
+                </div>
+              </div>
+            <div class="gee-message row chip" ng-show="changeMemberMessage">
+              {{changeMemberMessage}}
+            </div>
+            <a class="waves-effect waves-light btn" id="submit" ng-click="submitSetMember(aMember)">Submit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="gee-add-btn btn-floating btn-large waves-effect waves-light" ng-click="addNew=!addNew">
+    <i class="material-icons">add</i>
+  </a>
+
+</div>

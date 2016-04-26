@@ -1,0 +1,9 @@
+{
+  "name": "gee-waring",
+  "version": "0.0.1",
+  "dependencies": {
+    "materialize": "~0.97.5",
+    "angular": "~1.5.2",
+    "angular-ui-router": "^0.2.18"
+  }
+}

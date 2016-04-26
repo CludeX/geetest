@@ -1,0 +1,28 @@
+<div class="container log_container">
+     <div class="collection">
+         <table class="table">
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>level</th>
+                <th>time</th>
+                <th>active</th>
+            </tr>
+            <tr ng-repeat="item in LogMember" class="contain">
+                <td>{{item._id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.level}}</td>
+                <td>{{item.time}}</td>
+                <td>{{item.active}}</td>
+            </tr>
+         </table>
+     </div>
+</div>
+<div class="page">
+    <ul class="pagination">
+        <li ng-class="{true:'waves-effect',false:'disabled'}[left]" ng-click="head()"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="waves-effect" ng-repeat="m in viewNumber " ng-click="pageMessage(m)" ng-class="{'active': m==page}"><a href="#!">{{m}}</a></li>
+        <li class="disabled"><span>...</span></li>
+        <li ng-class="{true:'waves-effect',false:'disabled'}[right]" ng-click="bottom()"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+</div>

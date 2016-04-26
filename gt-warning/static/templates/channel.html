@@ -1,0 +1,118 @@
+<div class="container">
+  <div class="card row" ng-show="addNew">                           <!--Add new Channel-->
+    <h4 class="center">Add New Channel</h4>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="channel_name" type="text" ng-model="newChannel._id" class="validate">
+          <label for="channel_name">Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="channel_level" type="number" ng-model="newChannel.level" class="validate">
+          <label for="channel_level">Level</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="channel_note" type="text" ng-model="newChannel.note" class="validate">
+          <label for="channel_note">About</label>
+        </div>
+      </div>
+      <div class="gee-message row chip" id="message" ng-show="newChannelMessage">
+        {{newChannelMessage}}
+      </div>
+      <a class="waves-effect waves-light btn" id="submit" ng-click="addChannel(newChannel)">Submit</a>
+    </form>
+  </div>
+
+  <div class="gee-collection card row">                                     <!-- Channel list-->
+    <h4 class="center">Channel List</h4>
+    <div class="collection">
+      <a href="#!" ng-repeat="channnel in allChannels"
+         class="collection-item" ng-click="setChannel(channnel)">
+        {{channnel._id}}
+        <!--<span class="badge">{{channnel.level}}</span>-->
+        <span class="badge" ng-bind="channnel.level"></span>
+      </a>
+      <!--<a href="#!" class="collection-item">nginx<span class="new badge">4</span></a>-->
+    </div>
+  </div>
+
+  <div class="gee-pop" id="gee-pop" ng-show="showPop">                           <!--遮罩层-->
+    <div class="gee-pop-body">
+      <div class="container">
+        <div class="gee-pop-card card row">
+          <a href="#!" class="right" ng-click="showPop=false"><i class="material-icons">power_settings_new</i></a>
+
+          <form class="col s12">
+            <h4 id="operation-name" ng-bind="aChannel._id"></h4>
+             <!--Dropdown Trigger-->
+              <a class="dropdown-button btn red" href="#" data-activates="dropdown1">level {{ aChannel.level }}</a>
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!" ng-click="aChannel.level=1">1</a></li>
+              <li><a href="#!" ng-click="aChannel.level=2">2</a></li>
+              <li class="divider"></li>
+              <li><a href="#!" ng-click="aChannel.level=3">3</a></li>
+            </ul>
+
+            <div ng-repeat="(key, value) in aChannel.event">
+              <div class="row">
+                <h5 class="center">{{key}}设置:</h5>
+                <div class="input-field col s12">
+                  <div>操作:</div>                                                         <!--操作-->
+                  <span ng-repeat="item in operationList" class="lab">
+                  <input type="checkbox" ng-checked="exists(item, aChannel.event[key]['operation'])"
+                         ng-click="toggle(item, key)"/>
+                  <label ng-click="toggle(item, key)"> {{ item }}</label>
+                  </span>
+                </div>
+                <div class="input-field col s12">
+                  <div>groups:</div>                                                      <!--groups-->
+                  <span ng-repeat="item in groupList" class="lab">
+                  <input type="checkbox" ng-checked="exists(item, aChannel.event[key]['groups'])"
+                         ng-click="toggleGroup(item, key)"/>
+                  <label ng-click="toggleGroup(item, key)" > {{ item }}</label>
+                  </span>
+                </div>
+              </div>
+
+
+              <div class="row warning">
+                <div class="input-field col s12">
+                  <input id="operation-awite" type="number" class="validate" ng-model="aChannel.event[key]['await']">
+                  <label class="active">报警间隔(分)</label>
+                </div>
+              </div>
+            </div>
+            <div class="gee-message row chip" ng-show="settingChannelMessage">
+              {{settingChannelMessage}}
+            </div>
+            <a class="waves-effect waves-light btn" id="submit-pop" ng-click="submitSetChannel(aChannel)">Submit</a>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="gee-add-btn btn-floating btn-large waves-effect waves-light" ng-click="addNew=!addNew">
+    <i class="material-icons">add</i>
+  </a>
+
+  <script>
+    $(document).ready(function () {
+      $('.dropdown-button').dropdown({
+            inDuration: 300,
+            outDuration: 225,
+            constrain_width: false, // Does not change width of dropdown to that of the activator
+            hover: true, // Activate on hover
+            gutter: 0, // Spacing from edge
+            belowOrigin: false, // Displays dropdown below the button
+            alignment: 'left' // Displays dropdown with edge aligned to the left of button
+          }
+      );
+    });
+  </script>
+</div>
