@@ -1,0 +1,7 @@
+*.pyc
+.idea/
+static/node_modules
+static/typings
+log/
+local_config.py
+static/bower_components

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gtWarning">
+<head>
+  <base href="/"/>
+  <meta charset="UTF-8">
+  <title>Geetest</title>
+  <link type="text/css" rel="stylesheet" href="/static/bower_components/materialize/dist/css/materialize.min.css"
+        media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/static/style/main.css">
+  <link type="text/css" rel="stylesheet" href="/static/style/font.css">
+  <script type="text/javascript" src="/static/bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="/static/bower_components/angular/angular.js"></script>
+  <script type="text/javascript"
+          src="/static/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+<body>
+<nav class="gee-nav teal darken-1">
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo right">geetest</a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="/members">Members</a></li>
+      <li><a href="/groups">Groups</a></li>
+      <li><a href="/channels">Channels</a></li>
+      <li><a href="/logs">Logs</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="gee-body">
+  <div class="base-view" ui-view></div>
+</div>
+
+<script type="text/javascript" src="/static/js/app.js"></script>
+<script type="text/javascript" src="/static/js/controllers/base.js"></script>
+<script type="text/javascript" src="/static/js/controllers/channels.js"></script>
+<script type="text/javascript" src="/static/js/controllers/groups.js"></script>
+<script type="text/javascript" src="/static/js/controllers/members.js"></script>
+<script type="text/javascript" src="/static/js/controllers/logs.js"></script>
+<script type="text/javascript" src="/static/bower_components/materialize/dist/js/materialize.min.js"></script>
+</body>
+</html>

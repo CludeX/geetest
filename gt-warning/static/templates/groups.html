@@ -1,0 +1,82 @@
+<div class="container">                                                       <!--Add New Group-->
+    <div class="card row" ng-show="addNew">
+        <h4 class="center">Add New Group</h4>
+        <form class="col s12">
+             <div class="row">
+                <div class="input-field col s12">
+                  <input id="group_name" type="text" ng-model="newGroup._id" class="validate">
+                  <label for="group_name">GroupName</label>
+                </div>
+             </div>
+             <div class="row">
+                <div class="input-field col s12">
+                  <input id="group_level" type="text" ng-model="newGroup.level" class="validate">
+                  <label for="group_level">level</label>
+                </div>
+             </div>
+             <div class="gee-message row chip" id="message" ng-show="newGroupMessage">
+                {{newGroupMessage}}
+             </div>
+             <a class="waves-effect waves-light btn" id="submit" ng-click="addGroup(newGroup)">Create</a>
+        </form>
+    </div>
+
+    <div class="gee-collection card row">                    <!--Group List-->
+        <h4 class="center">Group List</h4>
+        <div class="collection">
+            <a href="#!" ng-repeat="group in allGroups" class="collection-item" ng-click="setGroup(group)">
+                {{group._id}}
+                <span class="badge" ng-bind="group.level"></span>
+            </a>
+        </div>
+    </div>
+
+    <div class="gee-pop" id="gee-pop" ng-show="showPop">                           <!--遮罩层-->
+        <div class="gee-pop-body">
+          <div class="container">
+            <div class="gee-pop-card card row">
+              <a href="#!" class="right" ng-click="showPop=false"><i class="material-icons">power_settings_new</i></a>
+
+              <form class="col s12 fm">
+                <h4 id="operation-name" ng-bind="aGroup._id"></h4>
+                  <div class="group-m">群成员:</div>
+                  <div class="collection">
+                    <a href="#!" ng-repeat="member in Member track by $index" class="collection-item group-member">
+                        {{member}}
+                        <span class="badge">
+                            <span class="waves-effect waves-light btn delete" ng-click="delMember($index)">
+                                Del
+                            </span>
+                        </span>
+                    </a>
+                  </div>
+                  <a class="waves-effect waves-light btn sub" id="submit-pop" ng-click="AddNewSub()">添加/删除</a>
+                  <div class="gee-message row chip newMessage" id="message" ng-show="newMemberMessage">
+                        {{newMemberMessage}}
+                  </div>
+
+                  <a class="waves-effect waves-light btn" id="submit-pop" ng-click="addGroupMember()">添加成员</a>
+                    <div ng-show="showAdd">
+                        <div class="group-m">所有成员:</div>
+                      <div class="collection">
+                        <a href="#!" ng-repeat="member in allMember track by $index" class="collection-item group-member">
+                            {{member._id}}
+                            <span class="badge">
+                                <span class="waves-effect waves-light btn add_new" ng-click="addNewMeb($index)">
+                                    Add
+                                </span>
+
+                            </span>
+                        </a>
+                      </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <a class="gee-add-btn btn-floating btn-large waves-effect waves-light" ng-click="addNew=!addNew">
+    <i class="material-icons">add</i>
+    </a>
+</div>
